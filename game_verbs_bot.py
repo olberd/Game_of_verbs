@@ -3,6 +3,7 @@ from telegram import Update
 from telegram.ext import Updater, CallbackContext, CommandHandler, MessageHandler, Filters
 from dotenv import load_dotenv
 import logging
+from detect_intent import detect_intent_texts
 
 
 load_dotenv()
@@ -18,7 +19,8 @@ def start(update: Update, context: CallbackContext):
 
 
 def echo(update: Update, context: CallbackContext):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
+    answer = detect_intent_texts('game-of-vebs-bssh', update.effective_chat.id, [update.message.text], 'ru-RU')
+    context.bot.send_message(chat_id=update.effective_chat.id, text=answer)
 
 
 start_handler = CommandHandler('start', start)
