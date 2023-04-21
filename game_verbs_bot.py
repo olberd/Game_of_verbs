@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import Updater, CallbackContext, CommandHandler, MessageHandler, Filters
 from dotenv import load_dotenv
 import logging
-from detect_intent import detect_intent_texts
+from intent_utils import detect_intent_texts
 
 
 load_dotenv()
