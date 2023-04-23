@@ -15,11 +15,12 @@ def main():
     for event in longpoll.listen():
         if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
             answer = detect_intent_texts('game-of-vebs-bssh', event.user_id, [event.text], 'ru-RU')
-            vk_api.messages.send(
-                user_id=event.user_id,
-                message=answer,
-                random_id=random.randint(1, 1000)
-            )
+            if answer:
+                vk_api.messages.send(
+                    user_id=event.user_id,
+                    message=answer,
+                    random_id=random.randint(1, 1000)
+                )
 
 
 if __name__ == "__main__":
