@@ -6,6 +6,7 @@ import logging
 from intent_utils import detect_intent_texts
 from logging_bot import TelegramLogsHandler
 
+
 logger = logging.getLogger(__name__)
 
 
