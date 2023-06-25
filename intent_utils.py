@@ -54,8 +54,8 @@ def get_intents_from_json(json_file='questions.json'):
 def main():
     project_id = os.getenv('DIALOGFLOW_PROJECT_ID')
     intents = get_intents_from_json()
-    for key, item in intents.items():
-        create_intent(project_id, key, item['questions'], [item['answer']])
+    for display_name, intent in intents.items():
+        create_intent(project_id, display_name, intent['questions'], [intent['answer']])
 
 
 if __name__ == '__main__':
