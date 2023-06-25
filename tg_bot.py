@@ -25,8 +25,9 @@ def send_answer(update: Update, context: CallbackContext):
         [update.message.text],
         'ru-RU'
     )
-    if answer:
-        context.bot.send_message(chat_id=update.effective_chat.id, text=answer)
+    while True:
+        if answer:
+            context.bot.send_message(chat_id=update.effective_chat.id, text=answer)
 
 
 def run_bot(telegram_token):
